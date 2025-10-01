@@ -4,8 +4,13 @@ public class Borne extends Carte {
 	
 	private int km;
 
-	public Borne() {
-		// TODO Auto-generated constructor stub
+	public Borne(int km) {
+		this.km = km;
+	}
+	
+	@Override
+	public String toString() {
+		return km +" KM";		
 	}
 
 }
