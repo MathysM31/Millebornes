@@ -10,5 +10,10 @@ public class DebutLimite extends Limite {
 	public String toString() {
 		return "Debut " + super.toString();
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof DebutLimite;
+	}
 
 }

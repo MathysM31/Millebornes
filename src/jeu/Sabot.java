@@ -15,7 +15,7 @@ public class Sabot implements Iterable<Carte> {
 	
 	public Sabot(Carte[] cartes) {
 		if (cartes == null) throw new IllegalArgumentException("cartes null");
-		this.cartes = cartes.clone();
+		this.cartes = cartes;
 		this.nbCartes = cartes.length;
 	}
 	
@@ -26,7 +26,7 @@ public class Sabot implements Iterable<Carte> {
 	public void ajouterCarte(Carte carte) {
 		if (cartes == null) throw new IllegalArgumentException("cartes null");
 		if (nbCartes >= cartes.length) {
-			throw new IllegalStateException("Dépassement de capacité du sabot");
+			throw new IllegalStateException("Depassement de capacite du sabot");
 		}
 		cartes[nbCartes++] = carte;
 		nbOperations++;
