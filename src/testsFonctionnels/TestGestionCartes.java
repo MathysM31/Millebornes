@@ -28,14 +28,14 @@ public class TestGestionCartes {
         }
 
         List<Carte> listeCartes = new ArrayList<>(listeCarteNonMelangee);
-        System.out.println("Avant mélange: " + listeCartes.size() + " cartes");
+        System.out.println("Avant melange: " + listeCartes.size() + " cartes");
         listeCartes = GestionCartes.melanger(listeCartes);
-        System.out.println("Après  mélange: " + listeCartes.size() + " cartes");
+        System.out.println("Apres  melange: " + listeCartes.size() + " cartes");
 
         boolean okMelange = GestionCartes.verifierMelange(listeCarteNonMelangee, listeCartes);
         boolean okMulti = memeMultiensemble(listeCarteNonMelangee, listeCartes);
 
-        System.out.println("liste mélangée sans erreur ? " + (okMelange && okMulti));
+        System.out.println("liste melangee sans erreur ? " + (okMelange && okMulti));
     }
 
     public static void testRassemblementIntegers() {
@@ -50,7 +50,7 @@ public class TestGestionCartes {
         List<Integer> r2 = GestionCartes.rassembler(l2);
         List<Integer> r3 = GestionCartes.rassembler(l3);
 
-        System.out.println("[] rassemblée OK ? " + GestionCartes.verifierRassemblement(r0));
+        System.out.println("[] rassemblee OK ? " + GestionCartes.verifierRassemblement(r0));
         System.out.println("[1,1,2,1,3] -> " + r1 + " OK ? " + GestionCartes.verifierRassemblement(r1));
         System.out.println("[1,4,3,2]   -> " + r2 + " OK ? " + GestionCartes.verifierRassemblement(r2));
         System.out.println("[1,1,2,3,1] -> " + r3 + " OK ? " + GestionCartes.verifierRassemblement(r3));
@@ -65,7 +65,7 @@ public class TestGestionCartes {
         melange = GestionCartes.melanger(melange);
 
         List<Carte> rassemble = GestionCartes.rassembler(melange);
-        System.out.println("liste rassemblée sans erreur ? " + GestionCartes.verifierRassemblement(rassemble));
+        System.out.println("liste rassemblee sans erreur ? " + GestionCartes.verifierRassemblement(rassemble));
     }
 
     public static void main(String[] args) {

@@ -21,7 +21,7 @@ public class Jeu {
 
         listeCartes = GestionCartes.melanger(listeCartes);
 
-        Carte[] cartesMelangees = listeCartes.toArray(new Carte[0]);
+        Carte[] cartesMelangees = listeCartes.toArray(cartes);
 
         this.sabot = new Sabot(cartesMelangees);
     }
