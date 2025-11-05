@@ -9,7 +9,8 @@ public class TestJeuDeCartes {
 		
         if (!jeu.checkCount()) {
             System.out.println("erreur de nombre");
+        } else {
+            System.out.println("OK : paquet conforme à la configuration");
         }
-
 	}
 }

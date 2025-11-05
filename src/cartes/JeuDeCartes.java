@@ -1,5 +1,13 @@
 package cartes;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+
 public class JeuDeCartes {
 	
 	private Configuration[] typesDeCartes = new Configuration[]{
@@ -74,12 +82,45 @@ public class JeuDeCartes {
 		return paquet;
 	}
 	
+
+
 	public boolean checkCount() {
-		int total = 0;
-		for (int i = 0; i < typesDeCartes.length; i++) {
-			total += typesDeCartes[i].getNbExemplaires();
-		}
-		return total == donnerCartes().length;
+	    Carte[] deck = donnerCartes();
+	    List<Carte> reel = new ArrayList<>(Arrays.asList(deck));
+
+	    Set<String> libelles = new HashSet<>();
+	    for (Configuration conf : typesDeCartes) {
+	        libelles.add(conf.getCarte().toString());
+	    }
+
+	    for (String lib : libelles) {
+	        int attendu = 0;
+	        for (Configuration conf : typesDeCartes) {
+	            if (conf.getCarte().toString().equals(lib)) {
+	                attendu += conf.getNbExemplaires();
+	            }
+	        }
+	        int reelCount = Collections.frequency(reel,
+	                          reel.stream().filter(c -> c.toString().equals(lib)).findFirst().orElse(null));
+	    }
+	    for (String lib : libelles) {
+	        int attendu = 0;
+	        for (Configuration conf : typesDeCartes) {
+	            if (conf.getCarte().toString().equals(lib)) {
+	                attendu += conf.getNbExemplaires();
+	            }
+	        }
+	        int reelCount = 0;
+	        for (Carte c : reel) {
+	            if (c.toString().equals(lib)) reelCount++;
+	        }
+	        if (reelCount != attendu) return false;
+	    }
+
+	    int totalAttendu = 0;
+	    for (Configuration conf : typesDeCartes) totalAttendu += conf.getNbExemplaires();
+	    return deck.length == totalAttendu;
 	}
+
 	
 }
