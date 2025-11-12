@@ -1,4 +1,3 @@
-// src/jeu/MainJoueur.java
 package jeu;
 
 import java.util.ArrayList;
